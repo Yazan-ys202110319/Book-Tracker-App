@@ -10,3 +10,12 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+
+model Book {
+  id          String  @id @default(cuid(2))
+  name        String  
+  author      String 
+  status      String  
+  createdAt   DateTime  @default(now())
+}
