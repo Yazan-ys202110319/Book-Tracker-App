@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <>
     
-      <h1 className='flex flex-col justify-center'>Book Tracker</h1>
+      <h1 className='text-center text-3xl font-bold'>Book Tracker</h1>
 
       <div id = "form">
         
