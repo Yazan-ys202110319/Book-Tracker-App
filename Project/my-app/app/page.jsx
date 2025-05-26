@@ -10,9 +10,9 @@ export default async function Home() {
     
       <h1 className='text-center text-3xl font-bold'>Book Tracker</h1>
 
-      <div id = "form">
+      <div id = "form" className='flex justify-center'>
         
-        <form className='flex flex-col gap-2'>
+        <form className='flex flex-col gap-2 w-50'>
             <input placeholder='Book Title' />
             <input placeholder='Author' />
             <select>

@@ -403,8 +403,32 @@ img, video {
   display: grid;
 }
 
+.w-3 {
+  width: .75rem;
+}
+
+.w-28 {
+  width: 7rem;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.w-44 {
+  width: 11rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
