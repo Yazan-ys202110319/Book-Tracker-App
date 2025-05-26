@@ -1,5 +1,6 @@
 import { getAllBooks } from '../ui/Card.js';
 
+
 export default async function Home() {
 
   const books = await getAllBooks();
@@ -7,14 +8,19 @@ export default async function Home() {
   return (
     <>
     
-    
-
-      <h1>Book Tracker</h1>
+      <h1 className='flex flex-col justify-center'>Book Tracker</h1>
 
       <div id = "form">
         
-        <form>
-
+        <form className='flex flex-col gap-2'>
+            <input placeholder='Book Title' />
+            <input placeholder='Author' />
+            <select>
+                <option>Reading</option>
+                <option>Read</option>
+                <option>Want to Read</option>
+            </select>
+            <button>Add Book</button>
         </form>
 
       </div>
@@ -31,17 +37,47 @@ export default async function Home() {
         
       </div>
 
+
+
+      {/* Reading section */}
+
       <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
-        {books.map(book => (
-          <div key={book.id} className='border-2'>
-            <p>name: {book.name}</p>
-            <p>author: {book.author}</p>
-            <p>status: {book.status}</p>
+
+        {books.filter((book) => book.status === 'Reading')
+        .map((book) => (
+          <div key={book.id} className='border p-4 rounded shadow'>
+              <h3>{book.name}</h3>
+              <p>by {book.author}</p>
+              <p>Status: {book.status}</p>
+          </div>
+        ))}
+
+      </div>
+
+
+      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+
+        {books.filter((book) => book.status === 'Completed')
+        .map((book) => (
+          <div key={book.id} className='border p-4 rounded shadow'>
+              <h3>{book.name}</h3>
+              <p>by {book.author}</p>
+              <p>Status: {book.status}</p>
           </div>
         ))}
       </div>
 
+      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
 
+        {books.filter((book) => book.status === 'Wishlist')
+        .map((book) => (
+          <div key={book.id} className='border p-4 rounded shadow'>
+              <h3>{book.name}</h3>
+              <p>by {book.author}</p>
+              <p>Status: {book.status}</p>
+          </div>
+        ))}
+      </div>
 
     </>
   );
