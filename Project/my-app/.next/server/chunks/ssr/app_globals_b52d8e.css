@@ -313,10 +313,6 @@ img, video {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -341,12 +337,20 @@ img, video {
   border-width: 1px;
 }
 
+.p-3 {
+  padding: .75rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
 
-.p-3 {
-  padding: .75rem;
+.p-1 {
+  padding: .25rem;
+}
+
+.p-2 {
+  padding: .5rem;
 }
 
 .text-center {
@@ -356,6 +360,11 @@ img, video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .font-bold {
