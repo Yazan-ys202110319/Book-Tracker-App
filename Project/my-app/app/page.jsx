@@ -12,7 +12,7 @@ export default async function Home() {
 
       <div id = "form" className='flex justify-center'>
         
-        <form className='flex flex-col gap-2 w-50'>
+        <form className='flex flex-col gap-2 w-50 p-3'>
             <input placeholder='Book Title' />
             <input placeholder='Author' />
             <select>
@@ -23,61 +23,72 @@ export default async function Home() {
             <button>Add Book</button>
         </form>
 
+      
       </div>
 
-      <div id='reading'>
+          <hr />
+          <hr />
+          <hr className='p-4' />
 
-      </div>
+          <div className="main">
 
-      <div id='read'>
-        
-      </div>
+          
 
-      <div id='want to read'>
-        
-      </div>
+          <div id='reading'>
 
-
-
-      {/* Reading section */}
-
-      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
-
-        {books.filter((book) => book.status === 'Reading')
-        .map((book) => (
-          <div key={book.id} className='border p-4 rounded shadow'>
-              <h3>{book.name}</h3>
-              <p>by {book.author}</p>
-              <p>Status: {book.status}</p>
           </div>
-        ))}
 
-      </div>
-
-
-      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
-
-        {books.filter((book) => book.status === 'Completed')
-        .map((book) => (
-          <div key={book.id} className='border p-4 rounded shadow'>
-              <h3>{book.name}</h3>
-              <p>by {book.author}</p>
-              <p>Status: {book.status}</p>
+          <div id='read'>
+            
           </div>
-        ))}
-      </div>
 
-      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
-
-        {books.filter((book) => book.status === 'Wishlist')
-        .map((book) => (
-          <div key={book.id} className='border p-4 rounded shadow'>
-              <h3>{book.name}</h3>
-              <p>by {book.author}</p>
-              <p>Status: {book.status}</p>
+          <div id='want to read'>
+            
           </div>
-        ))}
-      </div>
+
+
+
+          {/* Reading section */}
+
+            <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+
+              {books.filter((book) => book.status === 'Reading')
+              .map((book) => (
+                <div key={book.id} className='border p-4 rounded shadow'>
+                    <h3>{book.name}</h3>
+                    <p>by {book.author}</p>
+                    <p>Status: {book.status}</p>
+                </div>
+              ))}
+
+            </div>
+
+
+            <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+
+              {books.filter((book) => book.status === 'Completed')
+              .map((book) => (
+                <div key={book.id} className='border p-4 rounded shadow'>
+                    <h3>{book.name}</h3>
+                    <p>by {book.author}</p>
+                    <p>Status: {book.status}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+
+              {books.filter((book) => book.status === 'Wishlist')
+              .map((book) => (
+                <div key={book.id} className='border p-4 rounded shadow'>
+                    <h3>{book.name}</h3>
+                    <p>by {book.author}</p>
+                    <p>Status: {book.status}</p>
+                </div>
+              ))}
+            </div>
+
+        </div>
 
     </>
   );
