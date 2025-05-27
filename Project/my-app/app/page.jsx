@@ -39,13 +39,13 @@ export default async function Home() {
 
               <div id='reading' className='flex flex-col'>
 
-                  <p className='text-3xl text-center'>📖 Currently Reading</p>
+                  <p className='text-3xl  text-center'>📖 Currently Reading</p>
 
-                  <div className='grid grid-cols-4 md:grid-cols-2 gap-4 p-3'>
+                  <div className='flex flex-wrap justify-center gap-4 p-8'>
 
                   {books.filter((book) => book.status === 'Reading')
                   .map((book) => (
-                    <div key={book.id} className='border p-4 rounded shadow'>
+                    <div key={book.id} className='border p-4 rounded'>
                         <h3>{book.name}</h3>
                         <p>by {book.author}</p>
                         <p>Status: {book.status}</p>
@@ -58,13 +58,13 @@ export default async function Home() {
 
               <div id='read' className='flex flex-col'>
 
-                    <p className='text-3xl'>✅ Read</p>
+                    <p className='text-3xl text-center'>✅ Read</p>
 
-                    <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+                    <div className='flex flex-wrap justify-center gap-4 p-8'>
 
                     {books.filter((book) => book.status === 'Completed')
                     .map((book) => (
-                      <div key={book.id} className='border p-4 rounded shadow'>
+                      <div key={book.id} className='border p-4 rounded w-fit'>
                           <h3>{book.name}</h3>
                           <p>by {book.author}</p>
                           <p>Status: {book.status}</p>
@@ -76,13 +76,13 @@ export default async function Home() {
 
               <div id='want to read'>
 
-                    <p className='text-3xl'>🕒 Want to Read</p>
+                    <p className='text-3xl text-center'>🕒 Want to Read</p>
 
-                      <div className='grid grid-cols-4 md:grid-cols-2 gap-4'>
+                      <div className='flex flex-wrap justify-center gap-4 p-8'>
 
                       {books.filter((book) => book.status === 'Wishlist')
                       .map((book) => (
-                        <div key={book.id} className='border p-4 rounded shadow'>
+                        <div key={book.id} className='border p-4 rounded w-fit'>
                             <h3>{book.name}</h3>
                             <p>by {book.author}</p>
                             <p>Status: {book.status}</p>
