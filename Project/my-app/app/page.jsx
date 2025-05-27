@@ -52,8 +52,8 @@ export default async function Home() {
                           <p>Status: {book.status}</p>
                       </div>
                       <div className='flex flex-col justify-center items-center gap-2'>
-                            <button>Delete</button>
-                            <button>Edit</button>
+                            <button className='border rounded p-1 bg-red-600'>Delete</button>
+                            <button className='border rounded p-1 bg-blue-600'>Edit</button>
                       </div>
                     </div>
                   ))}
@@ -77,8 +77,8 @@ export default async function Home() {
                             <p>Status: {book.status}</p>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-2'>
-                            <button>Delete</button>
-                            <button>Edit</button>
+                            <button className='border rounded p-1 bg-red-600'>Delete</button>
+                            <button className='border rounded p-1 bg-blue-600'>Edit</button>
                           </div>
                       </div>
                       
@@ -102,8 +102,8 @@ export default async function Home() {
                             <p>Status: {book.status}</p>
                           </div>
                           <div className='flex flex-col justify-center items-center gap-2'>
-                            <button>Delete</button>
-                            <button>Edit</button>
+                            <button className='border rounded p-1 bg-red-600'>Delete</button>
+                            <button className='border rounded p-1 bg-blue-600'>Edit</button>
                           </div>
                         </div>
                       ))}
