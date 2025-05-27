@@ -45,10 +45,16 @@ export default async function Home() {
 
                   {books.filter((book) => book.status === 'Reading')
                   .map((book) => (
-                    <div key={book.id} className='border p-4 rounded'>
-                        <h3>{book.name}</h3>
-                        <p>by {book.author}</p>
-                        <p>Status: {book.status}</p>
+                    <div key={book.id} className='flex flex-row gap-16 border p-4 rounded'>
+                      <div>
+                          <h3>{book.name}</h3>
+                          <p>by {book.author}</p>
+                          <p>Status: {book.status}</p>
+                      </div>
+                      <div className='flex flex-col justify-center items-center gap-2'>
+                            <button>Delete</button>
+                            <button>Edit</button>
+                      </div>
                     </div>
                   ))}
 
@@ -64,11 +70,18 @@ export default async function Home() {
 
                     {books.filter((book) => book.status === 'Completed')
                     .map((book) => (
-                      <div key={book.id} className='border p-4 rounded w-fit'>
-                          <h3>{book.name}</h3>
-                          <p>by {book.author}</p>
-                          <p>Status: {book.status}</p>
+                      <div key={book.id} className='flex flex-row gap-16 border p-4 rounded w-fit'>
+                        <div>
+                            <h3>{book.name}</h3>
+                            <p>by {book.author}</p>
+                            <p>Status: {book.status}</p>
+                        </div>
+                        <div className='flex flex-col justify-center items-center gap-2'>
+                            <button>Delete</button>
+                            <button>Edit</button>
+                          </div>
                       </div>
+                      
                     ))}
                   </div>
 
@@ -82,10 +95,16 @@ export default async function Home() {
 
                       {books.filter((book) => book.status === 'Wishlist')
                       .map((book) => (
-                        <div key={book.id} className='border p-4 rounded w-fit'>
+                        <div key={book.id} className='flex flex-row gap-16 border p-4 rounded w-fit'>
+                          <div>
                             <h3>{book.name}</h3>
                             <p>by {book.author}</p>
                             <p>Status: {book.status}</p>
+                          </div>
+                          <div className='flex flex-col justify-center items-center gap-2'>
+                            <button>Delete</button>
+                            <button>Edit</button>
+                          </div>
                         </div>
                       ))}
                     </div>

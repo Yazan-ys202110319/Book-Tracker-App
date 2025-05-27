@@ -403,6 +403,10 @@ img, video {
   width: fit-content;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -411,8 +415,16 @@ img, video {
   flex-wrap: wrap;
 }
 
+.items-center {
+  align-items: center;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.gap-16 {
+  gap: 4rem;
 }
 
 .gap-2 {
