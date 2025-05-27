@@ -30,21 +30,30 @@ export default async function Home() {
           <hr />
           <hr className='p-4' />
 
-          <div className="main">
 
-          
 
-          <div id='reading'>
 
-          </div>
+          <div className="flex flex-col">
 
-          <div id='read'>
-            
-          </div>
+  
 
-          <div id='want to read'>
-            
-          </div>
+              <div id='reading'>
+
+                  <p>📖 Currently Reading</p>
+
+              </div>
+
+              <div id='read'>
+
+                    <p>✅ Read</p>
+
+              </div>
+
+              <div id='want to read'>
+
+                    <p>🕒 Want to Read</p>
+                    
+              </div>
 
 
 
