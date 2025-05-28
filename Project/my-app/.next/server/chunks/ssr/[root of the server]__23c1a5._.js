@@ -30,10 +30,29 @@ function Page() {
     const [books, setBooks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        fetchBooks();
+        try {
+            // Add API call to create a book
+            const response = await fetch('/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form)
+            });
+            if (response.ok) {
+                setForm({
+                    name: '',
+                    author: '',
+                    status: 'Reading'
+                });
+                fetchBooks(); // Refresh book list
+            }
+        } catch (error) {
+            console.error("Error creating book:", error);
+        }
     };
     const fetchBooks = async ()=>{
-        const res = await fetch('/api/route');
+        const res = await fetch('/api');
         const data = await res.json();
         setBooks(data);
     };
@@ -47,7 +66,7 @@ function Page() {
                 children: "Book Tracker"
             }, void 0, false, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 32,
+                lineNumber: 47,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -67,7 +86,7 @@ function Page() {
                                 })
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 37,
+                            lineNumber: 52,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -80,7 +99,7 @@ function Page() {
                                 })
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 38,
+                            lineNumber: 53,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -98,7 +117,7 @@ function Page() {
                                     children: "Reading"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 40,
+                                    lineNumber: 55,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -106,7 +125,7 @@ function Page() {
                                     children: "Read"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 41,
+                                    lineNumber: 56,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -114,48 +133,48 @@ function Page() {
                                     children: "Want to Read"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 42,
+                                    lineNumber: 57,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 39,
+                            lineNumber: 54,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             children: "Add Book"
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 44,
+                            lineNumber: 59,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.jsx",
-                    lineNumber: 36,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 34,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {}, void 0, false, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 50,
+                lineNumber: 65,
                 columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {}, void 0, false, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 51,
+                lineNumber: 66,
                 columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                 className: "p-4"
             }, void 0, false, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 52,
+                lineNumber: 67,
                 columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -170,7 +189,7 @@ function Page() {
                                 children: "📖 Currently Reading"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 63,
+                                lineNumber: 78,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -184,7 +203,7 @@ function Page() {
                                                         children: book.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 71,
+                                                        lineNumber: 86,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -194,7 +213,7 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 72,
+                                                        lineNumber: 87,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -204,13 +223,13 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 73,
+                                                        lineNumber: 88,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 70,
+                                                lineNumber: 85,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -221,7 +240,7 @@ function Page() {
                                                         children: "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 76,
+                                                        lineNumber: 91,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -229,30 +248,30 @@ function Page() {
                                                         children: "Edit"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 77,
+                                                        lineNumber: 92,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 75,
+                                                lineNumber: 90,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, book.id, true, {
                                         fileName: "[project]/app/page.jsx",
-                                        lineNumber: 69,
+                                        lineNumber: 84,
                                         columnNumber: 21
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 65,
+                                lineNumber: 80,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 61,
+                        lineNumber: 76,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -264,7 +283,7 @@ function Page() {
                                 children: "✅ Read"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 88,
+                                lineNumber: 103,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -278,7 +297,7 @@ function Page() {
                                                         children: book.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 96,
+                                                        lineNumber: 111,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -288,7 +307,7 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 97,
+                                                        lineNumber: 112,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -298,13 +317,13 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 98,
+                                                        lineNumber: 113,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 95,
+                                                lineNumber: 110,
                                                 columnNumber: 25
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -315,7 +334,7 @@ function Page() {
                                                         children: "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 116,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -323,30 +342,30 @@ function Page() {
                                                         children: "Edit"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 117,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 100,
+                                                lineNumber: 115,
                                                 columnNumber: 25
                                             }, this)
                                         ]
                                     }, book.id, true, {
                                         fileName: "[project]/app/page.jsx",
-                                        lineNumber: 94,
+                                        lineNumber: 109,
                                         columnNumber: 23
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 90,
+                                lineNumber: 105,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 86,
+                        lineNumber: 101,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -357,7 +376,7 @@ function Page() {
                                 children: "🕒 Want to Read"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 113,
+                                lineNumber: 128,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -371,7 +390,7 @@ function Page() {
                                                         children: book.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 121,
+                                                        lineNumber: 136,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -381,7 +400,7 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 137,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -391,13 +410,13 @@ function Page() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 123,
+                                                        lineNumber: 138,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 120,
+                                                lineNumber: 135,
                                                 columnNumber: 27
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -408,7 +427,7 @@ function Page() {
                                                         children: "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 126,
+                                                        lineNumber: 141,
                                                         columnNumber: 29
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -416,36 +435,36 @@ function Page() {
                                                         children: "Edit"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.jsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 142,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.jsx",
-                                                lineNumber: 125,
+                                                lineNumber: 140,
                                                 columnNumber: 27
                                             }, this)
                                         ]
                                     }, book.id, true, {
                                         fileName: "[project]/app/page.jsx",
-                                        lineNumber: 119,
+                                        lineNumber: 134,
                                         columnNumber: 25
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 115,
+                                lineNumber: 130,
                                 columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 111,
+                        lineNumber: 126,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 57,
+                lineNumber: 72,
                 columnNumber: 11
             }, this)
         ]

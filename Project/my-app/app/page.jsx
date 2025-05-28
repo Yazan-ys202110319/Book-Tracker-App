@@ -1,30 +1,5 @@
 'use client';
 
-import { useState, useEffect } from "react";
-
-
-
-export default function Page() {
-
-  const [form, setForm] = useState({name: '', author: '', status: 'Reading'});
-  const [books, setBooks] = useState([]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    fetchBooks();
-
-  }
-
-  const fetchBooks = async () => {
-    const res = await fetch('/api/route');
-    const data = await res.json();
-    setBooks(data);
-  }
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
 
   return (
     <>
@@ -138,4 +113,3 @@ export default function Page() {
 
     </>
   );
-}
