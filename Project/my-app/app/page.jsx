@@ -1,9 +1,30 @@
-import { getAllBooks } from '../ui/Card.js';
+'use client';
+
+import { useState, useEffect } from "react";
 
 
-export default async function Home() {
 
-  const books = await getAllBooks();
+export default function Page() {
+
+  const [form, setForm] = useState({name: '', author: '', status: 'Reading'});
+  const [books, setBooks] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    fetchBooks();
+
+  }
+
+  const fetchBooks = async () => {
+    const res = await fetch('/api/route');
+    const data = await res.json();
+    setBooks(data);
+  }
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   return (
     <>
@@ -12,13 +33,13 @@ export default async function Home() {
 
       <div id = "form" className='flex justify-center'>
         
-        <form className='flex flex-col gap-2 w-50 p-3'>
-            <input required placeholder='Book Title' />
-            <input required placeholder='Author' />
-            <select required placeholder='Choose status' className='text-black'>
-                <option>Reading</option>
-                <option>Read</option>
-                <option>Want to Read</option>
+        <form className='flex flex-col gap-2 w-50 p-3' onSubmit={handleSubmit}>
+            <input required placeholder='Book Title' value={form.name} onChange={(e) => setForm({...form, name:e.target.value })} />
+            <input required placeholder='Author' value={form.author} onChange={(e) => setForm({...form, author: e.target.value })} />
+            <select required placeholder='Choose status' className='text-black' value={form.status} onChange={(e) => setForm({...form, status: e.target.value })}>
+                <option value='Reading'>Reading</option>
+                <option value='Completed'>Read</option>
+                <option value='Wishlist'>Want to Read</option>
             </select>
             <button>Add Book</button>
         </form>
