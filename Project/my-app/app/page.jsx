@@ -15,7 +15,7 @@ export default async function Home() {
         <form className='flex flex-col gap-2 w-50 p-3'>
             <input required placeholder='Book Title' />
             <input required placeholder='Author' />
-            <select required>
+            <select required placeholder='Choose status' className='text-black'>
                 <option>Reading</option>
                 <option>Read</option>
                 <option>Want to Read</option>
