@@ -14,22 +14,6 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 {
 'use client';
 const { jsxDEV: _jsxDEV, Fragment: _Fragment } = __turbopack_require__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-const [form, setForm] = useState({
-    name: '',
-    author: '',
-    status: 'Reading'
-});
-const [books, setBooks] = use;
-const handleSubmit = async (e)=>{
-    e.preventDefault();
-    const res = await fetch('/api/books', {
-        method: 'POST',
-        header: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(form)
-    });
-};
 return /*#__PURE__*/ _jsxDEV(_Fragment, {
     children: [
         /*#__PURE__*/ _jsxDEV("h1", {
@@ -37,7 +21,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
             children: "Book Tracker"
         }, void 0, false, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 20,
+            lineNumber: 7,
             columnNumber: 7
         }, this),
         /*#__PURE__*/ _jsxDEV("div", {
@@ -57,7 +41,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                             })
                     }, void 0, false, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 25,
+                        lineNumber: 12,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ _jsxDEV("input", {
@@ -70,7 +54,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                             })
                     }, void 0, false, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 26,
+                        lineNumber: 13,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ _jsxDEV("select", {
@@ -88,7 +72,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                 children: "Reading"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 28,
+                                lineNumber: 15,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ _jsxDEV("option", {
@@ -96,7 +80,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                 children: "Read"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 29,
+                                lineNumber: 16,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ _jsxDEV("option", {
@@ -104,48 +88,48 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                 children: "Want to Read"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.jsx",
-                                lineNumber: 30,
+                                lineNumber: 17,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 27,
+                        lineNumber: 14,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ _jsxDEV("button", {
                         children: "Add Book"
                     }, void 0, false, {
                         fileName: "[project]/app/page.jsx",
-                        lineNumber: 32,
+                        lineNumber: 19,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.jsx",
-                lineNumber: 24,
+                lineNumber: 11,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 22,
+            lineNumber: 9,
             columnNumber: 7
         }, this),
         /*#__PURE__*/ _jsxDEV("hr", {}, void 0, false, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 38,
+            lineNumber: 25,
             columnNumber: 11
         }, this),
         /*#__PURE__*/ _jsxDEV("hr", {}, void 0, false, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 39,
+            lineNumber: 26,
             columnNumber: 11
         }, this),
         /*#__PURE__*/ _jsxDEV("hr", {
             className: "p-4"
         }, void 0, false, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 40,
+            lineNumber: 27,
             columnNumber: 11
         }, this),
         /*#__PURE__*/ _jsxDEV("div", {
@@ -160,7 +144,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                             children: "📖 Currently Reading"
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 51,
+                            lineNumber: 38,
                             columnNumber: 19
                         }, this),
                         /*#__PURE__*/ _jsxDEV("div", {
@@ -174,7 +158,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: book.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 59,
+                                                    lineNumber: 46,
                                                     columnNumber: 27
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -184,7 +168,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 60,
+                                                    lineNumber: 47,
                                                     columnNumber: 27
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -194,13 +178,13 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 61,
+                                                    lineNumber: 48,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 58,
+                                            lineNumber: 45,
                                             columnNumber: 23
                                         }, this),
                                         /*#__PURE__*/ _jsxDEV("div", {
@@ -211,7 +195,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Delete"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 64,
+                                                    lineNumber: 51,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("button", {
@@ -219,30 +203,30 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Edit"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 65,
+                                                    lineNumber: 52,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 63,
+                                            lineNumber: 50,
                                             columnNumber: 23
                                         }, this)
                                     ]
                                 }, book.id, true, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 57,
+                                    lineNumber: 44,
                                     columnNumber: 21
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 53,
+                            lineNumber: 40,
                             columnNumber: 19
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.jsx",
-                    lineNumber: 49,
+                    lineNumber: 36,
                     columnNumber: 15
                 }, this),
                 /*#__PURE__*/ _jsxDEV("div", {
@@ -254,7 +238,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                             children: "✅ Read"
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 76,
+                            lineNumber: 63,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ _jsxDEV("div", {
@@ -268,7 +252,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: book.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 84,
+                                                    lineNumber: 71,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -278,7 +262,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 85,
+                                                    lineNumber: 72,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -288,13 +272,13 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 86,
+                                                    lineNumber: 73,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 83,
+                                            lineNumber: 70,
                                             columnNumber: 25
                                         }, this),
                                         /*#__PURE__*/ _jsxDEV("div", {
@@ -305,7 +289,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Delete"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 89,
+                                                    lineNumber: 76,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("button", {
@@ -313,30 +297,30 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Edit"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 90,
+                                                    lineNumber: 77,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 88,
+                                            lineNumber: 75,
                                             columnNumber: 25
                                         }, this)
                                     ]
                                 }, book.id, true, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 82,
+                                    lineNumber: 69,
                                     columnNumber: 23
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 78,
+                            lineNumber: 65,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.jsx",
-                    lineNumber: 74,
+                    lineNumber: 61,
                     columnNumber: 15
                 }, this),
                 /*#__PURE__*/ _jsxDEV("div", {
@@ -347,7 +331,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                             children: "🕒 Want to Read"
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 101,
+                            lineNumber: 88,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ _jsxDEV("div", {
@@ -361,7 +345,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: book.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 109,
+                                                    lineNumber: 96,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -371,7 +355,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 110,
+                                                    lineNumber: 97,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("p", {
@@ -381,13 +365,13 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 98,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 108,
+                                            lineNumber: 95,
                                             columnNumber: 27
                                         }, this),
                                         /*#__PURE__*/ _jsxDEV("div", {
@@ -398,7 +382,7 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Delete"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 114,
+                                                    lineNumber: 101,
                                                     columnNumber: 29
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDEV("button", {
@@ -406,36 +390,36 @@ return /*#__PURE__*/ _jsxDEV(_Fragment, {
                                                     children: "Edit"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.jsx",
-                                                    lineNumber: 115,
+                                                    lineNumber: 102,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.jsx",
-                                            lineNumber: 113,
+                                            lineNumber: 100,
                                             columnNumber: 27
                                         }, this)
                                     ]
                                 }, book.id, true, {
                                     fileName: "[project]/app/page.jsx",
-                                    lineNumber: 107,
+                                    lineNumber: 94,
                                     columnNumber: 25
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/page.jsx",
-                            lineNumber: 103,
+                            lineNumber: 90,
                             columnNumber: 23
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.jsx",
-                    lineNumber: 99,
+                    lineNumber: 86,
                     columnNumber: 15
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/page.jsx",
-            lineNumber: 45,
+            lineNumber: 32,
             columnNumber: 11
         }, this)
     ]
