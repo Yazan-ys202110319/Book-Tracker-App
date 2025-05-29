@@ -1,10 +1,12 @@
-import prisma from "@/repo/prisma";
-import Link from "next/link";
+import prisma from "../../../repo/prisma.js";
 
+export default async function BookPage({ params }) {
 
-export default async function BooksPages() {
-
-    const books = await prisma.book.findMany();
+    const book = await prisma.book.findUnique({
+        where: {
+            id: params.id
+        },
+    });
 
 
     return (
@@ -12,10 +14,10 @@ export default async function BooksPages() {
       
         <h1 className='text-center text-4xl font-bold'>Book Tracker</h1>
 
-        <div>{books.map((book) => (
-            <Link href={`/books/${book.id}`}><p key={book.id}>{book.name}{book.author}</p></Link>
-        ))}
-        </div>
+        
+            <p>{book.name}</p>
+        
+        
 
         <div id = "form" className='flex justify-center'>
           
