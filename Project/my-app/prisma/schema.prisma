@@ -12,7 +12,7 @@ datasource db {
 }
 
 
-model Book {
+model Book { 
   id          String  @id @default(cuid(2))
   name        String  
   author      String 

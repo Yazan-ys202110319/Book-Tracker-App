@@ -1,14 +1,24 @@
+import prisma from "@/repo/prisma";
+
 
 export default async function BooksPages() {
+
+      const books = await prisma.book.findMany();
+
 
     return (
       <>
       
         <h1 className='text-center text-4xl font-bold'>Book Tracker</h1>
 
+        <div>{books.map((book) => (
+            <p key={book.id}>{book.name}{book.author}</p>
+        ))}
+        </div>
+
         <div id = "form" className='flex justify-center'>
           
-          <form className='flex flex-col gap-2 w-50 p-3' onSubmit={handleSubmit}>
+          <form className='flex flex-col gap-2 w-50 p-3'>
               <input required placeholder='Book Title' />
               <input required placeholder='Author' />
               <select required placeholder='Choose status' className='text-black' >
@@ -26,10 +36,11 @@ export default async function BooksPages() {
             <hr />
             <hr className='p-4' />
 
+          
 
 
 
-            <div className="flex flex-col justify-center ">
+            {/* <div className="flex flex-col justify-center ">
 
     
 
@@ -109,9 +120,9 @@ export default async function BooksPages() {
 
 
 
-          </div>
+          </div> */}
 
       </>
     );
-    
+
 };
