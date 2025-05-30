@@ -16,6 +16,7 @@ model Book {
   id          String  @id @default(cuid(2))
   name        String  @unique
   author      String 
+  category    String?  @default("Uncategorized")
   status      String  
   description String?
   createdAt   DateTime  @default(now())
