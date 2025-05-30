@@ -2,17 +2,18 @@ import prisma from "@/repo/prisma";
 import Link from "next/link";
 
 
-const completed = await prisma.book.aggregate({
-    _count: true,
+const completedCount = await prisma.book.count({
+
     where: { 
       status: 'Completed' 
     }
+
 });
 
 
   
-const reading = await prisma.book.aggregate({
-    _count: true,
+const readingCount = await prisma.book.count({
+   
     where: { 
       status: 'Reading' 
     }
@@ -20,11 +21,12 @@ const reading = await prisma.book.aggregate({
 
 
 
-const toBeRead = await prisma.book.aggregate({
-    _count: true,
+const toBeReadCount = await prisma.book.count({
+
     where: { 
       status: 'Wishlist' 
     }
+
 });
 
 
@@ -71,9 +73,14 @@ export default async function BooksPages() {
 
                 <div id='reading' className='flex flex-col'>
 
-                    <p className='text-3xl  text-center'>📖 Currently Reading</p>
-                    <p>You’re in the middle of {completed._count} books.</p>
+                  <div className="flex flex-col justify-center items-center ">
 
+                      <p className='text-3xl text-center gap-3'>📖 Currently Reading</p>
+                      <p className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">You’re in the middle of {readingCount} books.</p>
+
+                  </div>
+
+                    
                     <div className='flex flex-wrap justify-center gap-4 p-8'>
 
                     {books.filter((book) => book.status === 'Reading')
@@ -85,7 +92,7 @@ export default async function BooksPages() {
                             <p>Status: {book.status}</p>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
+                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
                         </div>
                       </div>
                     ))}
@@ -96,8 +103,12 @@ export default async function BooksPages() {
 
                 <div id='read' className='flex flex-col'>
 
+                  <div className="flex flex-col justify-center items-center ">
+
                       <p className='text-3xl text-center'>✅ Read</p>
-                      <p>You can completed {reading._count} books.</p>
+                      <p className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">You have completed {completedCount} books.</p>
+
+                </div>
 
                       <div className='flex flex-wrap justify-center gap-4 p-8'>
 
@@ -110,7 +121,7 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                           </div>
                           <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
+                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
                             </div>
                         </div>
                         
@@ -121,8 +132,11 @@ export default async function BooksPages() {
 
                 <div id='want to read'>
 
+                  <div className="flex flex-col justify-center items-center ">
+
                       <p className='text-3xl text-center'>🕒 Want to Read</p>
-                      <p>{toBeRead._count} books are waiting to be explored.</p>
+                      <p className="bg-yellow-600 text-white text-xs px-2 py-1 rounded-full">{toBeReadCount} books are waiting to be explored.</p>
+                </div>
 
                         <div className='flex flex-wrap justify-center gap-4 p-8'>
 
@@ -135,7 +149,7 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                             </div>
                             <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
+                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
                             </div>
                           </div>
                         ))}
