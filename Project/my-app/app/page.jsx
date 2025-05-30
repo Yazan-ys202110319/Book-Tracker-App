@@ -1,6 +1,6 @@
 import prisma from "@/repo/prisma";
 import Link from "next/link";
-
+import { createBook } from "@/actions/actions";
 
 const completedCount = await prisma.book.count({
 
@@ -38,18 +38,19 @@ export default async function BooksPages() {
     return (
       <>
       
-        <h1 className='text-center text-4xl font-bold'>Book Tracker</h1>
+        <h1 className='text-center text-4xl font-bold p-5'>📚 Book Tracker</h1>
 
-        <p className="text-center">Welcome to Book Tracker — your personal library where you can Add books, track your reading, and organize your literary journey.</p>
+        <p className="text-center text-lg max-w-xl mx-auto p-3 leading-relaxed">Welcome to Book Tracker — your personal library where you can Add books, track your reading, and organize your literary journey.</p>
 
 
-        <div id = "form" className='flex justify-center'>
+        <div id = "form" className='flex justify-center mb-8'>
           
-          <form className='flex flex-col gap-2 w-50 p-6 rounded-xl w-full max-w-md space-y-4'>
+          <form action = {createBook} className='flex bg-gray-700 flex-col gap-2 w-50 p-6 rounded-xl w-full max-w-md space-y-4'>
             <h2 className="text-center font-semibold text-white">Add a New Book</h2>
-              <input type="text" className="rounded w-full p-1.5 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Book Title' />
-              <input type="text" className="w-full p-1.5 rounded text-black  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Author' />
-              <select required placeholder='Choose status' className='w-full p-3 rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-500' >
+              <input type="text" name="name" className="rounded w-full p-1.5 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Book Title' />
+              <input type="text" name="author" className="w-full p-1.5 rounded text-black  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Author' />
+              <input type="text" name="description" className="w-full p-1.5 rounded text-black  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder='Description (optional)' />
+              <select name="status" required placeholder='Choose status' className='w-full p-3 rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-500' >
                   <option value=''>Choose book status</option>
                   <option value='Reading'>Reading</option>
                   <option value='Completed'>Completed</option>
@@ -94,7 +95,7 @@ export default async function BooksPages() {
                             <p>Status: {book.status}</p>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
+                              <Link href = {`/api/book/${book.id}`}><button className='border rounded p-1 bg-purple-600'>Manage & More Info</button></Link>
                         </div>
                       </div>
                     ))}
