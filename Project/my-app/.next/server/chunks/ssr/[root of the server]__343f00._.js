@@ -80,16 +80,21 @@ function BookClient({ book }) {
             setIsDeleting(true);
             try {
                 const response = await fetch(`/api/books/${book.id}`, {
-                    method: 'DELETE'
+                    method: 'DELETE',
+                    cache: 'no-store' // Ensure we're not getting cached response
                 });
                 if (response.ok) {
-                    router.push('/');
+                    // Navigate to the home page and force a refresh
+                    router.refresh(); // First refresh the router
+                    router.push('/'); // Then redirect
                 } else {
-                    alert('Failed to delete book');
+                    const errorData = await response.json();
+                    alert(`Failed to delete book: ${errorData.error || 'Unknown error'}`);
                     setIsDeleting(false);
                 }
             } catch (error) {
                 console.error("Error deleting book:", error);
+                alert(`Error: ${error.message}`);
                 setIsDeleting(false);
             }
         }
@@ -104,7 +109,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 56,
+                    lineNumber: 59,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -114,13 +119,13 @@ function BookClient({ book }) {
                     children: isDeleting ? 'Deleting...' : 'Delete Book'
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 62,
+                    lineNumber: 65,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 55,
+            lineNumber: 58,
             columnNumber: 17
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
             onSubmit: handleSubmit,
@@ -131,7 +136,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 71,
+                    lineNumber: 75,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -141,7 +146,7 @@ function BookClient({ book }) {
                     placeholder: "Book Title"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 72,
+                    lineNumber: 76,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -151,7 +156,7 @@ function BookClient({ book }) {
                     placeholder: "Author"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 78,
+                    lineNumber: 82,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -162,7 +167,7 @@ function BookClient({ book }) {
                     placeholder: "Description"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 84,
+                    lineNumber: 88,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -174,7 +179,7 @@ function BookClient({ book }) {
                             children: "Save Changes"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 93,
+                            lineNumber: 97,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -184,19 +189,19 @@ function BookClient({ book }) {
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 94,
+                            lineNumber: 98,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 92,
+                    lineNumber: 96,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 70,
+            lineNumber: 74,
             columnNumber: 17
         }, this)
     }, void 0, false);

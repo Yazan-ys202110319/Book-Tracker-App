@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_bc77c6._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_8941c1._.js", {
 
 "[project]/app/books/[id]/BookClient.jsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -10,15 +10,12 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_refresh__.signature();
 'use client';
 ;
-;
 function BookClient({ book }) {
     _s();
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [showForm, setShowForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [name, setName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(book.name);
     const [author, setAuthor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(book.author);
@@ -27,7 +24,7 @@ function BookClient({ book }) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await fetch(`/api/books/${book.id}`, {
+            const response = await fetch(`/api/books/${book.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,13 +33,20 @@ function BookClient({ book }) {
                     name,
                     author,
                     description
-                })
+                }),
+                cache: 'no-store'
             });
-            setShowForm(false);
-            // Refresh the page to show updated data
-            router.refresh();
+            if (response.ok) {
+                setShowForm(false);
+                // Force a page refresh to show updated data
+                window.location.reload();
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to update book: ${errorData.error || 'Unknown error'}`);
+            }
         } catch (error) {
             console.error("Failed to update book:", error);
+            alert(`Error: ${error.message}`);
         }
     }
     async function handleDelete() {
@@ -51,12 +55,17 @@ function BookClient({ book }) {
             try {
                 const response = await fetch(`/api/books/${book.id}`, {
                     method: 'DELETE',
-                    cache: 'no-store' // Ensure we're not getting cached response
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
                 });
                 if (response.ok) {
-                    // Navigate to the home page and force a refresh
-                    router.refresh(); // First refresh the router
-                    router.push('/'); // Then redirect
+                    // Navigate to the home page with cache-busting parameter
+                    const timestamp = new Date().getTime();
+                    window.location.href = `/?t=${timestamp}`;
                 } else {
                     const errorData = await response.json();
                     alert(`Failed to delete book: ${errorData.error || 'Unknown error'}`);
@@ -79,7 +88,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 59,
+                    lineNumber: 70,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -89,13 +98,13 @@ function BookClient({ book }) {
                     children: isDeleting ? 'Deleting...' : 'Delete Book'
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 65,
+                    lineNumber: 76,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 58,
+            lineNumber: 69,
             columnNumber: 17
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
             onSubmit: handleSubmit,
@@ -106,7 +115,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 75,
+                    lineNumber: 86,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -116,7 +125,7 @@ function BookClient({ book }) {
                     placeholder: "Book Title"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 76,
+                    lineNumber: 87,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -126,7 +135,7 @@ function BookClient({ book }) {
                     placeholder: "Author"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 82,
+                    lineNumber: 93,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -137,7 +146,7 @@ function BookClient({ book }) {
                     placeholder: "Description"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 88,
+                    lineNumber: 99,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -149,7 +158,7 @@ function BookClient({ book }) {
                             children: "Save Changes"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 97,
+                            lineNumber: 108,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -159,28 +168,24 @@ function BookClient({ book }) {
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 98,
+                            lineNumber: 109,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 96,
+                    lineNumber: 107,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 74,
+            lineNumber: 85,
             columnNumber: 17
         }, this)
     }, void 0, false);
 }
-_s(BookClient, "iBot7cMbiuY0hOyT1dkqd6TN8Hs=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
-    ];
-});
+_s(BookClient, "LdjrnGTZ9Ao8h0VzWBhPz8q42jU=");
 _c = BookClient;
 var _c;
 __turbopack_refresh__.register(_c, "BookClient");
@@ -1587,12 +1592,6 @@ if ("TURBOPACK compile-time falsy", 0) {
     module.exports = __turbopack_require__("[project]/node_modules/next/dist/compiled/react/cjs/react-jsx-dev-runtime.development.js [app-client] (ecmascript)");
 }
 }}),
-"[project]/node_modules/next/navigation.js [app-client] (ecmascript)": (function(__turbopack_context__) {
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
-{
-module.exports = __turbopack_require__("[project]/node_modules/next/dist/client/components/navigation.js [app-client] (ecmascript)");
-}}),
 }]);
 
-//# sourceMappingURL=_bc77c6._.js.map
+//# sourceMappingURL=_8941c1._.js.map

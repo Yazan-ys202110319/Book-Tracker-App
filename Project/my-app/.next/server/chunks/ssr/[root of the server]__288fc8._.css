@@ -404,16 +404,16 @@ img, video {
   margin-bottom: .5rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .mt-8 {
@@ -670,14 +670,14 @@ img, video {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: .75rem;
-  line-height: 1rem;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: .75rem;
+  line-height: 1rem;
 }
 
 .font-bold {

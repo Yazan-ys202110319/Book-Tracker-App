@@ -1,38 +1,28 @@
 import prisma from "@/repo/prisma";
 import Link from "next/link";
 import { createBook } from "@/actions/actions";
+import { unstable_noStore } from 'next/cache';
 
-const completedCount = await prisma.book.count({
-
-    where: { 
-      status: 'Completed' 
-    }
-
-});
-
-
-  
-const readingCount = await prisma.book.count({
-   
-    where: { 
-      status: 'Reading' 
-    }
-});
-
-
-
-const toBeReadCount = await prisma.book.count({
-
-    where: { 
-      status: 'Wishlist' 
-    }
-
-});
-
+// Tell Next.js not to cache this page
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default async function BooksPages() {
+    // Explicitly prevent caching of this data
+    unstable_noStore();
 
-    const books = await prisma.book.findMany();
+    const [completedCount, readingCount, toBeReadCount, books] = await Promise.all([
+        prisma.book.count({
+            where: { status: 'Completed' }
+        }),
+        prisma.book.count({
+            where: { status: 'Reading' }
+        }),
+        prisma.book.count({
+            where: { status: 'Wishlist' }
+        }),
+        prisma.book.findMany()
+    ]);
 
 
     return (
