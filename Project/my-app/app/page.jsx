@@ -45,15 +45,17 @@ export default async function BooksPages() {
 
         <div id = "form" className='flex justify-center'>
           
-          <form className='flex flex-col gap-2 w-50 p-3'>
-              <input required placeholder='Book Title' />
-              <input required placeholder='Author' />
-              <select required placeholder='Choose status' className='text-black' >
+          <form className='flex flex-col gap-2 w-50 p-6 rounded-xl w-full max-w-md space-y-4'>
+            <h2 className="text-center font-semibold text-white">Add a New Book</h2>
+              <input type="text" className="rounded w-full p-1.5 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Book Title' />
+              <input type="text" className="w-full p-1.5 rounded text-black  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" required placeholder='Author' />
+              <select required placeholder='Choose status' className='w-full p-3 rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-500' >
+                  <option value=''>Choose book status</option>
                   <option value='Reading'>Reading</option>
-                  <option value='Completed'>Read</option>
+                  <option value='Completed'>Completed</option>
                   <option value='Wishlist'>Want to Read</option>
               </select>
-              <button>Add Book</button>
+              <button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-4 rounded">Add</button>
           </form>
 
         
