@@ -124,7 +124,9 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                           </div>
                           <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
+                              <Link href={`/books/${book.id}`}>
+                                <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
+                              </Link>
                             </div>
                         </div>
                         
@@ -152,7 +154,9 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                             </div>
                             <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
+                              <Link href={`/books/${book.id}`}>
+                                <button className='border rounded p-1 bg-purple-600'>Manage & More Info</button>
+                              </Link>
                             </div>
                           </div>
                         ))}

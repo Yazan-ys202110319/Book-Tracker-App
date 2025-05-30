@@ -10,6 +10,6 @@ export async function createBook(formData) {
             author: formData.get('author'),
             status: formData.get('status')
         }
-    })
+    });
 
 }
