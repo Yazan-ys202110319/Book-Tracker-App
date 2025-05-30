@@ -2,6 +2,32 @@ import prisma from "@/repo/prisma";
 import Link from "next/link";
 
 
+const completed = await prisma.book.aggregate({
+    _count: true,
+    where: { 
+      status: 'Completed' 
+    }
+});
+
+
+  
+const reading = await prisma.book.aggregate({
+    _count: true,
+    where: { 
+      status: 'Reading' 
+    }
+});
+
+
+
+const toBeRead = await prisma.book.aggregate({
+    _count: true,
+    where: { 
+      status: 'Wishlist' 
+    }
+});
+
+
 export default async function BooksPages() {
 
     const books = await prisma.book.findMany();
@@ -12,10 +38,8 @@ export default async function BooksPages() {
       
         <h1 className='text-center text-4xl font-bold'>Book Tracker</h1>
 
-        <div>{books.map((book) => (
-            <Link href={`/books/${book.id}`}><p key={book.id}>{book.name}{book.author}</p></Link>
-        ))}
-        </div>
+        <p className="text-center">Welcome to Book Tracker — your personal library where you can Add books, track your reading, and organize your literary journey.</p>
+
 
         <div id = "form" className='flex justify-center'>
           
@@ -41,13 +65,14 @@ export default async function BooksPages() {
 
 
 
-            {/* <div className="flex flex-col justify-center ">
+            <div className="flex flex-col justify-center ">
 
     
 
                 <div id='reading' className='flex flex-col'>
 
                     <p className='text-3xl  text-center'>📖 Currently Reading</p>
+                    <p>You’re in the middle of {completed._count} books.</p>
 
                     <div className='flex flex-wrap justify-center gap-4 p-8'>
 
@@ -60,8 +85,7 @@ export default async function BooksPages() {
                             <p>Status: {book.status}</p>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-red-600'>Delete</button>
-                              <button className='border rounded p-1 bg-blue-600'>Edit</button>
+                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
                         </div>
                       </div>
                     ))}
@@ -73,6 +97,7 @@ export default async function BooksPages() {
                 <div id='read' className='flex flex-col'>
 
                       <p className='text-3xl text-center'>✅ Read</p>
+                      <p>You can completed {reading._count} books.</p>
 
                       <div className='flex flex-wrap justify-center gap-4 p-8'>
 
@@ -85,8 +110,7 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                           </div>
                           <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-red-600'>Delete</button>
-                              <button className='border rounded p-1 bg-blue-600'>Edit</button>
+                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
                             </div>
                         </div>
                         
@@ -98,6 +122,7 @@ export default async function BooksPages() {
                 <div id='want to read'>
 
                       <p className='text-3xl text-center'>🕒 Want to Read</p>
+                      <p>{toBeRead._count} books are waiting to be explored.</p>
 
                         <div className='flex flex-wrap justify-center gap-4 p-8'>
 
@@ -110,8 +135,7 @@ export default async function BooksPages() {
                               <p>Status: {book.status}</p>
                             </div>
                             <div className='flex flex-col justify-center items-center gap-2'>
-                              <button className='border rounded p-1 bg-red-600'>Delete</button>
-                              <button className='border rounded p-1 bg-blue-600'>Edit</button>
+                              <button className='border rounded p-1 bg-blue-600'>Manage & More Info</button>
                             </div>
                           </div>
                         ))}
@@ -121,7 +145,7 @@ export default async function BooksPages() {
 
 
 
-          </div> */}
+          </div>
 
       </>
     );
