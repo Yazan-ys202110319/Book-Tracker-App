@@ -95,7 +95,7 @@ export default async function BooksPages() {
                             <p>Status: {book.status}</p>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-2'>
-                              <Link href = {`/api/book/${book.id}`}><button className='border rounded p-1 bg-purple-600'>Manage & More Info</button></Link>
+                              <Link href = {`/books/${book.id}`}><button className='border rounded p-1 bg-purple-600'>Manage & More Info</button></Link>
                         </div>
                       </div>
                     ))}
