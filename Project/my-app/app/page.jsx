@@ -3,7 +3,6 @@ import Link from "next/link";
 import { createBook } from "@/actions/actions";
 import { unstable_noStore } from 'next/cache';
 
-// Tell Next.js not to cache this page
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 

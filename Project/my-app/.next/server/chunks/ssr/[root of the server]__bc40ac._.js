@@ -44,7 +44,6 @@ function BookClient({ book }) {
             });
             if (response.ok) {
                 setShowForm(false);
-                // Force a page refresh to show updated data
                 window.location.reload();
             } else {
                 const errorData = await response.json();
@@ -69,7 +68,6 @@ function BookClient({ book }) {
                     }
                 });
                 if (response.ok) {
-                    // Navigate to the home page with cache-busting parameter
                     const timestamp = new Date().getTime();
                     window.location.href = `/?t=${timestamp}`;
                 } else {
@@ -94,7 +92,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 70,
+                    lineNumber: 68,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -104,13 +102,13 @@ function BookClient({ book }) {
                     children: isDeleting ? 'Deleting...' : 'Delete Book'
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 76,
+                    lineNumber: 74,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 69,
+            lineNumber: 67,
             columnNumber: 17
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
             onSubmit: handleSubmit,
@@ -121,7 +119,7 @@ function BookClient({ book }) {
                     children: "Edit Book"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 86,
+                    lineNumber: 84,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -131,7 +129,7 @@ function BookClient({ book }) {
                     placeholder: "Book Title"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 87,
+                    lineNumber: 85,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -141,7 +139,7 @@ function BookClient({ book }) {
                     placeholder: "Author"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 93,
+                    lineNumber: 91,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -152,7 +150,7 @@ function BookClient({ book }) {
                     placeholder: "Description"
                 }, void 0, false, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 99,
+                    lineNumber: 97,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -164,7 +162,7 @@ function BookClient({ book }) {
                             children: "Save Changes"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 108,
+                            lineNumber: 106,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -174,19 +172,19 @@ function BookClient({ book }) {
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/app/books/[id]/BookClient.jsx",
-                            lineNumber: 109,
+                            lineNumber: 107,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/books/[id]/BookClient.jsx",
-                    lineNumber: 107,
+                    lineNumber: 105,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/books/[id]/BookClient.jsx",
-            lineNumber: 85,
+            lineNumber: 83,
             columnNumber: 17
         }, this)
     }, void 0, false);
