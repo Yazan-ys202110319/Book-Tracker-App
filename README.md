@@ -2,7 +2,6 @@
 
 A modern web application for tracking your reading journey. Built with **Next.js**, **React**, **Prisma**, and **Tailwind CSS**, this app lets users create, update, and manage books across different reading statuses — making it easy to stay organized and engaged with your reading goals.
 
-[🔗 View Repository](https://github.com/Yazan-ys202110319/Book-Tracker-App)
 
 ---
 
