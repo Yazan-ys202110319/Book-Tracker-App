@@ -35,7 +35,7 @@ A modern web application for tracking your reading journey. Built with **Next.js
 
 | Home Page | Book Details |
 |-----------|---------------|
-| ![Home Screenshot](../Book-Tracker-App/Project//my-app/public//screenshots/home.png) | ![Details Screenshot](../Book-Tracker-App/Project/my-app/public/screenshots/details.png) |
+| ![Home Screenshot](./Project/screenshots/home.png) | ![Details Screenshot](./Project/screenshots/details.png) |
 
 
 
