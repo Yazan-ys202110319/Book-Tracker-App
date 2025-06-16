@@ -35,27 +35,12 @@ A modern web application for tracking your reading journey. Built with **Next.js
 
 | Home Page | Book Details |
 |-----------|---------------|
-| ![Home Screenshot](./public/screenshots/home.png) | ![Details Screenshot](./public/screenshots/details.png) |
+| ![Home Screenshot](../Book-Tracker-App/Project//my-app/public//screenshots/home.png) | ![Details Screenshot](../Book-Tracker-App/Project/my-app/public/screenshots/details.png) |
 
 
 
 ---
 
-## 📂 Project Structure
-
-```bash
-Book-Tracker-App/
-├── components/         # Reusable components
-├── pages/              # Next.js page routes
-│   ├── index.tsx       # Home page with book status categories
-│   └── book/[id].tsx   # Detailed book view
-├── prisma/             # Prisma schema and migration files
-├── styles/             # Tailwind CSS configs
-├── lib/                # Prisma client & helper functions
-├── public/             # Static assets
-└── README.md
-
-```
 
 ## 🧪 Setup & Run Locally
 
